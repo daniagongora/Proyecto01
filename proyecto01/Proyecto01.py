@@ -31,7 +31,7 @@ class Proyecto01:
 		#guardar las peticiones en json para despues manejarlas, en el diccionario nuevo
 		if peticion.status_code==200 and peticion2.status_code == 200:
 			diccionarioClima[ciudadOrigen]=peticion.json() 
-			diccionarioClima[ciudadDestino]=peticion.json()
+			diccionarioClima[ciudadDestino]=peticion2.json()
 
 
 		return peticion.status_code+peticion2.status_code 
