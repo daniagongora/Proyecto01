@@ -1,4 +1,4 @@
-import proyecto01
+import Proyecto01
 
 """ 
 pruebas para el proyecto01, sugiero que el archivo donde se haga el proyecto 
@@ -11,17 +11,25 @@ class Test:
 	
 	"""
 	método para probar las peticiones al OpenweatherMap
-	se hagn de la manera correcta
-	estoy suponiendo que el método se llama peticiones y no recibe argumentos 
-	pero si no es así cambiar el nombre y agregar argumentos.
-	probar con el comando python3 Test.py
+	se hagan de la manera correcta
 	"""
 	def pruebaPeticiones():
 		
-		#es 200 porque para API code eso significa que la petición se ha hecho correctamente
-		#con 404 y 401 es que la peticion ssalio mal por eso debe salir diferente
-		#por ahora que el método regrese el status code 
-		
-		assert(proyecto01.peticiones()==200)
-		assert(proyecto01.peticiones()!=401)
-		assert(proyecto01.peticiones()!=404)
+		#el método suma los status_code, si todo está bien regresa 400
+		#si algo sale mal, regresa algo difrerente a 400, por lo que
+		#si hace esta consulta incorrecta, deberia ser diferente de 400
+		diccionarioPrueba={"MEX":["123","456"]}
+		assert(Proyecto01.peticiones(diccionarioPrueba)!=400)
+
+	"""
+	método para probar que se lee correctamente el documento y el cache 
+	funciona adecuadamente
+	"""
+	def pruebaLecturaCache():
+
+		#prueba que el valor asociado sea el correcto, es decir la long y lat correctas
+
+		diccionarioPrueba=["49.0128","2.55"]
+		assert(Proyecto01.lecturaCache()["CDG"]==diccionarioPrueba)
+
+	
