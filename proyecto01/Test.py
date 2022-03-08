@@ -1,4 +1,5 @@
 import Proyecto01
+import requests
 
 """ 
 pruebas para el proyecto01, sugiero que el archivo donde se haga el proyecto 
@@ -19,7 +20,7 @@ class Test:
 		#si algo sale mal, regresa algo difrerente a 400, por lo que
 		#si hace esta consulta incorrecta, deberia ser diferente de 400
 		diccionarioPrueba={"MEX":["123","456"]}
-		assert(Proyecto01.peticiones(diccionarioPrueba)!=400)
+		assert(Proyecto01.peticiones(diccionarioPrueba).status_code!=200)
 
 	"""
 	método para probar que se lee correctamente el documento y el cache 

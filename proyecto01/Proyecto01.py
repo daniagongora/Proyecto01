@@ -2,39 +2,37 @@ import requests
 import json
 import csv
 from io import open
+
 """
 Programa que se encarga de hacer lo que pide el proyecto 1
 """
 class Proyecto01:
+	
 	"""
 	Método para las peticiones
 	"""
 	def peticiones(diccionario):
+		
 		#diccionario nuevo para almacenar las ciudades con su clima
 		diccionarioClima={} 
 	
 		#llave de la api (esta es la de mi cuenta, pueden probar con otra de preferncia)
 		llaveApi="87dd4d6b93bcf3872531c2fecaf51962"
+		url="http://api.openweathermap.org/data/2.5/weather?"
 
 		#por cada ciudad en el diccionario de lectura hace una petición 
-		for ciudadOrigen in diccionario.keys():
-
-			peticionApi="http://api.openweathermap.org/data/2.5/weather?" + "lat=" +diccionario[ciudadOrigen][0]+"&"+"lon="+diccionario[ciudadOrigen][1]+"&units=metric&appid="+llaveApi
+		for clave in diccionario.keys():
+			
+			peticionApi=url+"lat="+diccionario[clave][0]+"&"+"lon="+diccionario[clave][1]+"&units=metric&lang=es&appid="+llaveApi
 
 			peticion=requests.get(peticionApi)
+			
+			#guardar las peticiones en json para despues manejarlas, en el diccionario nuevo
+			if peticion.status_code!=404:
+				diccionarioClima[clave]=peticion.json() 
+				
 
-		for ciudadDestino in diccionario.keys():
-
-			peticionApi2="http://api.openweathermap.org/data/2.5/weather?" + "lat=" +diccionario[ciudadDestino][0]+"&"+"lon="+diccionario[ciudadDestino][1]+"&units=metric&appid="+llaveApi
-			peticion2=requests.get(peticionApi2)
-
-		#guardar las peticiones en json para despues manejarlas, en el diccionario nuevo
-		if peticion.status_code==200 and peticion2.status_code == 200:
-			diccionarioClima[ciudadOrigen]=peticion.json() 
-			diccionarioClima[ciudadDestino]=peticion2.json()
-
-
-		return peticion.status_code+peticion2.status_code 
+		return diccionarioClima
 
 	"""
 	Método para leer el csv para almacenar los datos en un diccionario(cache) el cual 
@@ -63,3 +61,27 @@ class Proyecto01:
 
 	
 		return cache
+
+		"""
+		Método que mostrara los datos del clima de la ciudad dada con su iata
+		la información la consultara con lo guardado en el diccionario de
+		peticiones
+		"""
+	def salidaClima(peticiones,iata):
+
+		#almacena los datos del clima
+		datos=peticiones[iata]
+
+		#convierte en string los datos para pode mostrarlos
+		temperatura=str(datos["main"]["temp"])
+		humedad=str(datos["main"]["humidity"])
+		sensacion=str(datos["main"]["feels_like"])
+		presion=str(datos["main"]["pressure"])
+		
+		
+		print(
+			iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura+
+			"\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]+
+			"\n con sensación de: "+sensacion+"\n presion: "+presion
+			)
+	
