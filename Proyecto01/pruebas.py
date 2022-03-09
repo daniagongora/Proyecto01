@@ -2,10 +2,7 @@ import Proyecto01
 import requests
 
 """ 
-pruebas para el proyecto01, sugiero que el archivo donde se haga el proyecto 
-se llame proyecto01 y ahi se almacenen los métodos
-por lo que supondre que asi se llama, si le ponen otro nombre 
-solo sustituyanlo
+pruebas para el proyecto01
 """
 
 class Test:
