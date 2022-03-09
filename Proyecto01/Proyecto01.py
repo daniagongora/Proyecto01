@@ -6,6 +6,11 @@ from io import open
 """
 Programa que se encarga de hacer lo que pide el proyecto 1
 """
+
+"""
+ENTRADA
+"""
+
 class Proyecto01:
 	
 	"""
@@ -61,23 +66,30 @@ class Proyecto01:
 
 	
 		return cache
+"""
+SALIDA
+"""
 
 		"""
 		Método que mostrara los datos del clima de la ciudad dada con su iata
 		la información la consultara con lo guardado en el diccionario de
 		peticiones
 		"""
+	
 	def salidaClima(peticiones,iata):
 
 		#almacena los datos del clima
 		datos=peticiones[iata]
 
-		#convierte en string los datos para pode mostrarlos
+		#convierte en string los datos para poder mostrarlos
 		temperatura=str(datos["main"]["temp"])
 		humedad=str(datos["main"]["humidity"])
 		sensacion=str(datos["main"]["feels_like"])
 		presion=str(datos["main"]["pressure"])
 		
+		"""
+		Método para mostrar los datos de cada ciudad en el orden que aparece en el .csv de acuerdo a los boletos
+		"""
 		
 		print(
 			iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura+
