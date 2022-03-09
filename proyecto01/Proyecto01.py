@@ -21,7 +21,7 @@ class Proyecto01:
 		#diccionario nuevo para almacenar las ciudades con su clima
 		diccionarioClima={} 
 	
-		#llave de la api (esta es la de mi cuenta, pueden probar con otra de preferncia)
+		#llave de la api (esta es la de mi cuenta, pueden probar con otra de preferencia)
 		llaveApi="87dd4d6b93bcf3872531c2fecaf51962"
 		url="http://api.openweathermap.org/data/2.5/weather?"
 
@@ -88,8 +88,13 @@ SALIDA
 		presion=str(datos["main"]["pressure"])
 		
 		"""
-		Método para mostrar los datos de cada ciudad en el orden que aparece en el .csv de acuerdo a los boletos
+		Organizando todos los datos en el orden de los boletos mostrados por el .cvs
 		"""
+		#La función sort ordena bajo la función lambda los parámetros de cada variable con respecto a los datos del diccionario
+		temperatura.sort(key=lambda t: t["main"]["temp"])
+		humedad.sort(key=lambda h: h["main"]["humidity"])
+		sensacion.sort(key=lambda s: s["main"]["feels_like"])
+		presion.sort(key=lambda p: p["main"]["pressure"])
 		
 		print(
 			iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura+
