@@ -70,11 +70,11 @@ class Proyecto01:
 SALIDA
 """
 
-		"""
-		Método que mostrara los datos del clima de la ciudad dada con su iata
-		la información la consultara con lo guardado en el diccionario de
-		peticiones
-		"""
+	"""
+	Método que mostrará los datos del clima de la ciudad dada con su iata
+	la información la consultara con lo guardado en el diccionario de
+	peticiones
+	"""
 	
 	def salidaClima(peticiones,iata):
 
@@ -87,18 +87,47 @@ SALIDA
 		sensacion=str(datos["main"]["feels_like"])
 		presion=str(datos["main"]["pressure"])
 		
-		"""
-		Organizando todos los datos en el orden de los boletos mostrados por el .cvs
-		"""
-		#La función sort ordena bajo la función lambda los parámetros de cada variable con respecto a los datos del diccionario
-		temperatura.sort(key=lambda t: t["main"]["temp"])
-		humedad.sort(key=lambda h: h["main"]["humidity"])
-		sensacion.sort(key=lambda s: s["main"]["feels_like"])
-		presion.sort(key=lambda p: p["main"]["pressure"])
+	"""
+	Método que ordena a cada conjunto de datos del clima con su respectivo vuelo en el .csv
+	"""
+	def leerBoletos(diccionarioPeticion):
+
+		diccionario=diccionarioPeticion
+		dataset=open("entrada/dataset1.csv")
+		reader = csv.reader(dataset)
+		origen=["lista"]
+		destino=["lista"]
+		s=0
+		for row in reader:
+			origen.append(row[0])
+			destino.append(row[1])
 		
-		print(
-			iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura+
-			"\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]+
-			"\n con sensación de: "+sensacion+"\n presion: "+presion
-			)
-	
+		for i in origen[2:]:
+			for j in destino[2:]:
+				#almacena los datos del clima
+				datos=diccionario[i]
+				datos2=diccionario[j]
+				#convierte en string los datos para poder mostrarlos
+				temperatura=str(datos["main"]["temp"])
+				humedad=str(datos["main"]["humidity"])
+				sensacion=str(datos["main"]["feels_like"])
+				presion=str(datos["main"]["pressure"])
+
+				temperatura2=str(datos2["main"]["temp"])
+				humedad2=str(datos2["main"]["humidity"])
+				sensacion2=str(datos2["main"]["feels_like"])
+				presion2=str(datos2["main"]["pressure"])
+				s=s+1
+				x=str(s)
+				print("el número: "+x)
+				print(
+					i+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura+
+					"\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]+
+					"\n con sensación de: "+sensacion+"\n presion: "+presion
+				)
+
+				print(
+					j+"\n lugar: "+datos2["name"]+"\n temperatura: "+temperatura2+
+					"\n humedad: "+humedad2+"\n descripcion: "+datos2["weather"][0]["description"]+
+					"\n con sensación de: "+sensacion2+"\n presion: "+presion2
+				)
