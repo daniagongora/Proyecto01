@@ -85,3 +85,5 @@ class Proyecto01:
 			"\n con sensación de: "+sensacion+"\n presion: "+presion
 			)
 	
+	
+
