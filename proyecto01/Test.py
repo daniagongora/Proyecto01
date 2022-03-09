@@ -1,4 +1,4 @@
-import Proyecto01
+import proyecto01
 import requests
 
 """ 
