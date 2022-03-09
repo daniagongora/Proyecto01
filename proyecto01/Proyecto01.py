@@ -78,12 +78,14 @@ class Proyecto01:
 		sensacion=str(datos["main"]["feels_like"])
 		presion=str(datos["main"]["pressure"])
 		
+		string1=iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura
+		string2="\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]
+		string3="\n con sensación de: "+sensacion+"\n presion: "+presion
+		informacion=string1+string2+string3
 		
-		print(
-			iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura+
-			"\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]+
-			"\n con sensación de: "+sensacion+"\n presion: "+presion
-			)
-	
+			
+		print(informacion)
+		return informacion
 	
 
+	
