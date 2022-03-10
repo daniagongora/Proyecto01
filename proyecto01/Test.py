@@ -29,3 +29,17 @@ class Test:
 
 		diccionarioPrueba=["49.0128","2.55"]
 		assert(Proyecto01.lecturaCache()["CDG"]==diccionarioPrueba)
+
+	"""
+	método para probar que se pueden visualizar los elementos del clima
+	"""
+	def pruebaSalidaClima():
+		#se comprobará que la salida arroje correctamente valores string para ser vistos en pantalla
+		
+		stringP1="MXN,MTY \n 25°C \n"
+		stringP2="47% de humedad \n "
+		stringP3="sensación de 27° \n y presion de 1012hPa"
+		informacionPrueba=stringP1+stringP2+stringP3
+		assert(type(informacionPrueba.salidaClima())==str)
+		
+		
