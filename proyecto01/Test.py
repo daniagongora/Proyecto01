@@ -29,3 +29,11 @@ class Test:
 
 		diccionarioPrueba=["49.0128","2.55"]
 		assert(Proyecto01.lecturaCache()["CDG"]==diccionarioPrueba)
+
+	"""
+	método para probar que la salida arroje correctamente un valor tipo string
+	"""
+	
+	def pruebaSalidaClima():
+		assrt(Proyecto01.salidaClima()[
+		
