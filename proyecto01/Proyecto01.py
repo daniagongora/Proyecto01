@@ -80,6 +80,8 @@ class Proyecto01:
 			
 		print(informacion)
 		return informacion
+	
+
 	def leerBoletos(diccionarioPeticion):
 
 		diccionario=diccionarioPeticion
