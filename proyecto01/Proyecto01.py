@@ -83,6 +83,10 @@ class Proyecto01:
 	
 
 	def leerBoletos(diccionarioPeticion):
+		"""
+		Método que muestra los datos del clima
+		de los 3000 boletos
+		"""
 
 		diccionario=diccionarioPeticion
 		dataset=open("entrada/dataset1.csv")
@@ -95,11 +99,12 @@ class Proyecto01:
 			destino.append(row[1])
 		
 		for i in origen[2:]:
+			
 			for j in destino[2:]:
-				#almacena los datos del clima
+				
 				datos=diccionario[i]
 				datos2=diccionario[j]
-				#convierte en string los datos para poder mostrarlos
+				
 				temperatura=str(datos["main"]["temp"])
 				humedad=str(datos["main"]["humidity"])
 				sensacion=str(datos["main"]["feels_like"])
@@ -123,3 +128,5 @@ class Proyecto01:
 					"\n humedad: "+humedad2+"\n descripcion: "+datos2["weather"][0]["description"]+
 					"\n con sensación de: "+sensacion2+"\n presion: "+presion2
 				)
+
+	leerBoletos(peticiones(lecturaCache()))
