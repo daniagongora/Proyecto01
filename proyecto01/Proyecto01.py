@@ -3,19 +3,19 @@ import json
 import csv
 from io import open
 
-"""
-Programa que se encarga de hacer lo que pide el proyecto 1
-"""
+
 class Proyecto01:
+
+	"""
+	Clase que se encarga de hacer lo que pide el proyecto 1
+	"""	
 	
-	"""
-	Método para las peticiones
-	"""
 	def peticiones(diccionario):
-		
+		"""
+		Método para las peticiones
+		"""	
 		diccionarioClima={} 
 	
-		#llave de la api (esta es la de mi cuenta, pueden probar con otra de preferncia)
 		llaveApi="87dd4d6b93bcf3872531c2fecaf51962"
 		url="http://api.openweathermap.org/data/2.5/weather?"
 
@@ -31,12 +31,12 @@ class Proyecto01:
 
 		return diccionarioClima
 
-	"""
-	Método para leer el csv para almacenar los datos en un diccionario(cache) el cual 
-	se podra consultar
-	"""
-	def lecturaCache():
 	
+	def lecturaCache():
+		"""
+		Método para leer el csv para almacenar los datos en un diccionario(cache) el cual 
+		se podra consultar
+		"""
 		cache={}
 
 		documento = csv.DictReader(open("entrada/dataset1.csv"))
@@ -57,14 +57,14 @@ class Proyecto01:
 	
 		return cache
 
+		
+	def salidaClima(peticiones,iata):
 		"""
 		Método que mostrara los datos del clima de la ciudad dada con su iata
 		la información la consultara con lo guardado en el diccionario de
 		peticiones
 		"""
-	def salidaClima(peticiones,iata):
-
-		#almacena los datos del clima
+		
 		datos=peticiones[iata]
 
 		temperatura=str(datos["main"]["temp"])
