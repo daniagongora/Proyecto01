@@ -2,7 +2,7 @@ import Proyecto01
 import requests
 
 """ 
-pruebas para el proyecto01
+pruebas para el proyecto 1
 """
 
 class Test:
