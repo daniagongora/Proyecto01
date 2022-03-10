@@ -1,4 +1,4 @@
-import Proyecto01
+from Proyecto01 import *
 import requests
 
 """ 
@@ -12,9 +12,9 @@ class Test:
 	se hagan de la manera correcta
 	"""
 	def pruebaPeticiones():
-
+		
 		diccionarioPrueba={"MEX":["123","456"]}
-		assert(Proyecto01.peticiones(diccionarioPrueba).status_code!=200)
+		assert(Proyecto01.peticiones(diccionarioPrueba)!=200)
 
 	"""
 	método para probar que se lee correctamente el documento y el cache 
