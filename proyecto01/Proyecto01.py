@@ -38,7 +38,7 @@ class Proyecto01:
 	def lecturaCache():
 	
 		cache={}
-		
+
 		documento = csv.DictReader(open("entrada/dataset1.csv"))
 	
 		for row in documento:
@@ -82,3 +82,4 @@ class Proyecto01:
 		return informacion
 	
 
+	print(lecturaCache().keys())
