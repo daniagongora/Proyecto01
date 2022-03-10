@@ -80,11 +80,20 @@ SALIDA
 		#almacena los datos del clima
 		datos=peticiones[iata]
 
-		#convierte en string los datos para poder mostrarlos
+		#definiendo las variables de clima como string para poder ser mostrados
 		temperatura=str(datos["main"]["temp"])
 		humedad=str(datos["main"]["humidity"])
 		sensacion=str(datos["main"]["feels_like"])
 		presion=str(datos["main"]["pressure"])
+		
+		#haciendo un nuevo string para la prueba
+		string1=iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura
+		string2="\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]
+		string3="\n con sensación de: "+sensacion+"\n presion: "+presion
+		informacion=string1+string2+string3
+		
+		return(informacion)
+	assert(informacion)
 		
 	"""
 	Método que ordena a cada conjunto de datos del clima con su respectivo vuelo en el .csv
