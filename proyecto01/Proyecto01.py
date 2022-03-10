@@ -81,5 +81,3 @@ class Proyecto01:
 		print(informacion)
 		return informacion
 	
-
-	print(lecturaCache().keys())

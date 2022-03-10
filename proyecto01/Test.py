@@ -25,9 +25,4 @@ class Test:
 		diccionarioPrueba=["49.0128","2.55"]
 		assert(Proyecto01.lecturaCache()["CDG"]==diccionarioPrueba)
 
-	"""
-	método para probar que el método salidaClima()
-	"""
-	def salidaClima():
-
-		assert("humedad" in Proyecto01.salidaClima(Proyecto01.peticiones(lecturaCache()),"MEX"))
+	
