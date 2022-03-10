@@ -13,21 +13,18 @@ class Proyecto01:
 	"""
 	def peticiones(diccionario):
 		
-		#diccionario nuevo para almacenar las ciudades con su clima
 		diccionarioClima={} 
 	
 		#llave de la api (esta es la de mi cuenta, pueden probar con otra de preferncia)
 		llaveApi="87dd4d6b93bcf3872531c2fecaf51962"
 		url="http://api.openweathermap.org/data/2.5/weather?"
 
-		#por cada ciudad en el diccionario de lectura hace una petición 
 		for clave in diccionario.keys():
 			
 			peticionApi=url+"lat="+diccionario[clave][0]+"&"+"lon="+diccionario[clave][1]+"&units=metric&lang=es&appid="+llaveApi
 
 			peticion=requests.get(peticionApi)
 			
-			#guardar las peticiones en json para despues manejarlas, en el diccionario nuevo
 			if peticion.status_code!=404:
 				diccionarioClima[clave]=peticion.json() 
 				
@@ -40,22 +37,20 @@ class Proyecto01:
 	"""
 	def lecturaCache():
 	
-		#el cache donde se almacenara la información
 		cache={}
-	
-		#con DictReader puedo abrir el csv e iterar para leer más facilmente en un diccionario
+		
 		documento = csv.DictReader(open("entrada/dataset1.csv"))
 	
 		for row in documento:
-			#guardara las coordenadas de cada ciudad de origen en una lista
+			
 			origenCoordenadas=[row["origin_latitude"],row["origin_longitude"]]
 			ciudadOrigen=row["origin"]
 
-			#guardara las coordenadas de cada ciudad de destino en una lista
+			
 			destinoCoordenadas=[row["destination_latitude"],row["destination_longitude"]]
 			ciudadDestino=row["destination"]
 
-			#guardara con las claves de ciudades sus coordenadas
+			
 			cache[ciudadOrigen]=origenCoordenadas
 			cache[ciudadDestino]=destinoCoordenadas
 
@@ -72,7 +67,6 @@ class Proyecto01:
 		#almacena los datos del clima
 		datos=peticiones[iata]
 
-		#convierte en string los datos para pode mostrarlos
 		temperatura=str(datos["main"]["temp"])
 		humedad=str(datos["main"]["humidity"])
 		sensacion=str(datos["main"]["feels_like"])
@@ -88,4 +82,3 @@ class Proyecto01:
 		return informacion
 	
 
-	
