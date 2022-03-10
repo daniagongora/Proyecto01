@@ -31,3 +31,16 @@ class Test:
 		assert(Proyecto01.lecturaCache()["CDG"]==diccionarioPrueba)
 
 		
+	"""
+	método para probar que el método salidaClima imprime en el formato correcto
+	"""
+	def pruebaSalidaClima():
+                
+		#se comprobará que la salida imprima correctamente las palabras clave que debe imprimir.
+
+                
+                diccionarioPrueba1 = Proyecto01.lecturaCahe()
+                diccionarioPrueba2 = Proyecto01.peticiones(diccionarioPrueba1)
+                assert("lugar","temperatura","humedad","sensacion" in Proyecto01.salidaClima(diccionarioPrueba2)))		
+
+		
