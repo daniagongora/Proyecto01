@@ -75,7 +75,6 @@ SALIDA
 	la información la consultara con lo guardado en el diccionario de
 	peticiones
 	"""
-	
 	def salidaClima(peticiones,iata):
 
 		#almacena los datos del clima
