@@ -93,7 +93,7 @@ SALIDA
 		informacion=string1+string2+string3
 		
 		return(informacion)
-	assert(informacion==string)
+		assert(type(informacion)==str)
 		
 	"""
 	Método que ordena a cada conjunto de datos del clima con su respectivo vuelo en el .csv
