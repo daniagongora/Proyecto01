@@ -25,4 +25,15 @@ class Test:
 		diccionarioPrueba=["49.0128","2.55"]
 		assert(Proyecto01.lecturaCache()["CDG"]==diccionarioPrueba)
 
+	def pruebaSalidaClima():
+		       
+		#se comprobará que la salida imprima correctamente las palabras clave que debe imprimir.
+
+                
+                diccionarioPrueba1 = Proyecto01.lecturaCache()
+                diccionarioPrueba2 = Proyecto01.peticiones(diccionarioPrueba1)
+                assert("lugar" in Proyecto01.salidaClima(diccionarioPrueba2, "MEX"))
+                assert("humedad"in Proyecto01.salidaClima(diccionarioPrueba2, "MEX"))
+                assert("temperatura" in Proyecto01.salidaClima(diccionarioPrueba2,"MEX"))
+                assert("sensación" in Proyecto01.salidaClima(diccionarioPrueba2,"MEX"))
 	
