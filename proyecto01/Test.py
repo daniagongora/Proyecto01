@@ -24,9 +24,10 @@ class Test:
 
 		diccionarioPrueba=["49.0128","2.55"]
 		assert(Proyecto01.lecturaCache()["CDG"]==diccionarioPrueba)
-    
-   	def pruebaSalidaClima():
-    	"""
+
+	
+	def pruebaSalidaClima():
+		"""
     	método para probar que el método salidaClima, imprime en el
     	formato correcto
     	"""
