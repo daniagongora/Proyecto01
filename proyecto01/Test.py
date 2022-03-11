@@ -28,11 +28,11 @@ class Test:
 	
 	def pruebaSalidaClima():
 		"""
-    	método para probar que el método salidaClima, imprime en el
-    	formato correcto
-    	"""
+    	        método para probar que el método salidaClima, imprime en el
+        	formato correcto
+        	"""
     	
-    	diccionarioPrueba1 = Proyecto01.lecturaCache()
-    	diccionarioPrueba2 = Proyecto01.peticiones(diccionarioPrueba1)
-    	assert("lugar","temperatura","humedad","sensacion" in Proyecto01.salidaClima(diccionarioPrueba2))
+        	diccionarioPrueba1 = Proyecto01.lecturaCache()
+        	diccionarioPrueba2 = Proyecto01.peticiones(diccionarioPrueba1)
+        	assert("lugar","temperatura","humedad","sensacion" in Proyecto01.salidaClima(diccionarioPrueba2))
 
