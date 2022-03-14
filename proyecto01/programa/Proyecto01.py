@@ -77,6 +77,8 @@ class Proyecto01:
 		linea3="\n con sensación de: "+sensacion+"\n presion: "+presion
 		informacion=linea1+linea2+linea3
 		
-		print(informacion)
 		return informacion
-	
+		
+		for iata in peticiones:
+			peticiones[iata]
+			print datos
