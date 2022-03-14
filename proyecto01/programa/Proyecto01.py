@@ -57,28 +57,24 @@ class Proyecto01:
 	
 		return cache
 
-		
-	def salidaClima(peticiones,iata):
+	def salidaClima(peticiones):
 		"""
-		Método que mostrara los datos del clima de la ciudad dada con su iata
-		la información la consultara con lo guardado en el diccionario de
-		peticiones
+		Método que mostrara los datos del clima de cada ciudad de acuerdo a su clave IATA
 		"""
-		
-		datos=peticiones[iata]
 
-		temperatura=str(datos["main"]["temp"])
-		humedad=str(datos["main"]["humidity"])
-		sensacion=str(datos["main"]["feels_like"])
-		presion=str(datos["main"]["pressure"])
+		temperatura=str(datosDelClima["main"]["temp"])
+		humedad=str(datosDelClima["main"]["humidity"])
+		sensacion=str(datosDelClima["main"]["feels_like"])
+		presion=str(datosDelClima["main"]["pressure"])
 		
-		linea1=iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura
-		linea2="\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]
-		linea3="\n con sensación de: "+sensacion+"\n presion: "+presion
-		informacion=linea1+linea2+linea3
+		for iata in peticiones.keys():
+			
+			infoClima=peticiones[iata]
+			linea1=iata+"\n lugar: "+datosDelClima["name"]+"\n temperatura: "+temperatura
+			linea2="\n humedad: "+humedad+"\n descripcion: "+infoClima["weather"][0]["description"]
+			linea3="\n con sensación de: "+sensacion+"\n presion: "+presion
+			informacion=linea1+linea2+linea3
 		
-		return informacion
-		
-		for iata in peticiones:
-			peticiones[iata]
-			print datos
+		print(informacion)
+			
+	return informacion
