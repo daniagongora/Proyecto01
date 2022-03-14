@@ -77,4 +77,4 @@ class Proyecto01:
 		
 		print(informacion)
 			
-	return informacion
+		return informacion
