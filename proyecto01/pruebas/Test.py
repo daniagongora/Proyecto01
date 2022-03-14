@@ -1,4 +1,7 @@
-from Proyecto01 import *
+from Proyecto01.proyecto01.programa.Proyecto01 import *
+
+__init__.py
+
 import requests
 
 class Test:
