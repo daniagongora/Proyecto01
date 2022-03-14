@@ -72,54 +72,11 @@ class Proyecto01:
 		sensacion=str(datos["main"]["feels_like"])
 		presion=str(datos["main"]["pressure"])
 		
-		string1=iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura
-		string2="\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]
-		string3="\n con sensación de: "+sensacion+"\n presion: "+presion
-		informacion=string1+string2+string3
+		linea1=iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura
+		linea2="\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]
+		linea3="\n con sensación de: "+sensacion+"\n presion: "+presion
+		informacion=linea1+linea2+linea3
 		
-			
 		print(informacion)
 		return informacion
 	
-
-	def leerBoletos(diccionarioPeticion):
-
-		diccionario=diccionarioPeticion
-		dataset=open("entrada/dataset1.csv")
-		reader = csv.reader(dataset)
-		origen=["lista"]
-		destino=["lista"]
-		s=0
-		for row in reader:
-			origen.append(row[0])
-			destino.append(row[1])
-		
-		for i in origen[2:]:
-			for j in destino[2:]:
-				#almacena los datos del clima
-				datos=diccionario[i]
-				datos2=diccionario[j]
-				#convierte en string los datos para poder mostrarlos
-				temperatura=str(datos["main"]["temp"])
-				humedad=str(datos["main"]["humidity"])
-				sensacion=str(datos["main"]["feels_like"])
-				presion=str(datos["main"]["pressure"])
-
-				temperatura2=str(datos2["main"]["temp"])
-				humedad2=str(datos2["main"]["humidity"])
-				sensacion2=str(datos2["main"]["feels_like"])
-				presion2=str(datos2["main"]["pressure"])
-				s=s+1
-				x=str(s)
-				print("el número: "+x)
-				print(
-					i+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura+
-					"\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]+
-					"\n con sensación de: "+sensacion+"\n presion: "+presion
-				)
-
-				print(
-					j+"\n lugar: "+datos2["name"]+"\n temperatura: "+temperatura2+
-					"\n humedad: "+humedad2+"\n descripcion: "+datos2["weather"][0]["description"]+
-					"\n con sensación de: "+sensacion2+"\n presion: "+presion2
-				)
