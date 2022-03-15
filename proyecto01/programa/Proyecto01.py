@@ -2,6 +2,7 @@ import requests
 import json
 import csv 
 from io import open
+import os
 from dotenv import load_dotenv, find_dotenv
 
 """
