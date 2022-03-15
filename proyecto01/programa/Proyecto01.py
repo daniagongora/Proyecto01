@@ -2,6 +2,7 @@ import requests
 import json
 import csv 
 from io import open
+from dotenv import load_dotenv, find_dotenv
 
 """
 Archivo que se encarga de hacer lo que pide el proyecto 1
@@ -9,15 +10,13 @@ Archivo que se encarga de hacer lo que pide el proyecto 1
 def peticiones(diccionario):
   """
   Método para las peticiones
-	"""	
+  """	
 	diccionarioClima={} 
-	require('dotenv').config()
-	console.log(process.env)
 		
-	"""
-	Ingresar aqui su API KEY
-	"""
-		
+"""
+Ingresar aqui su API KEY
+"""
+	load_dotenv(find_dotenv())
 	llaveApi=process.env.API_KEY
 	url="http://api.openweathermap.org/data/2.5/weather?"
 
