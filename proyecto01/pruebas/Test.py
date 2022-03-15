@@ -1,6 +1,6 @@
-from Proyecto01 import salidaClima
-from Proyecto01 import peticiones
-from Proyecto01 import lecturaCache
+import sys
+sys.path.insert(1,'../../proyecto01/programa')
+import Proyecto01
 import requests
 import json
 
@@ -16,7 +16,7 @@ class Test:
 		"""
 		
 		diccionarioPrueba={"MEX":["123","456"]}
-		assert(peticiones(diccionarioPrueba)!=200)
+		assert(Proyecto01.peticiones(diccionarioPrueba)!=200)
 
 	
 	def pruebaLecturaCache():
@@ -26,7 +26,7 @@ class Test:
 		"""
 
 		diccionarioPrueba=["49.0128","2.55"]
-		assert(lecturaCache()["CDG"]==diccionarioPrueba)
+		assert(Proyecto01.lecturaCache().keys()==diccionarioPrueba)
 
 	def pruebaSalidaClima():
 		"""
@@ -40,9 +40,10 @@ class Test:
 		peticion=requests.get(peticionApi)
 		diccionarioPrueba={"MTY":peticion.json()}
 
-		assert("temperatura" in salidaClima(diccionarioPrueba,"MTY"))
-		assert("humedad" in salidaClima(diccionarioPrueba,"MTY"))
-		assert("lugar" in salidaClima(diccionarioPrueba,"MTY"))
-		assert("sensación" in salidaClima(diccionarioPrueba,"MTY"))
+		assert("temperatura" in Proyecto01.salidaClima(diccionarioPrueba))
+		assert("humedad" in Proyecto01.salidaClima(diccionarioPrueba))
+		assert("lugar" in Proyecto01.salidaClima(diccionarioPrueba))
+		assert("sensación" in Proyecto01.salidaClima(diccionarioPrueba))
 
+	
 	
