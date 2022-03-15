@@ -6,14 +6,19 @@ from io import open
 """
 Archivo que se encarga de hacer lo que pide el proyecto 1
 """	
-	
 def peticiones(diccionario):
-	"""
-	Método para las peticiones
+  """
+  Método para las peticiones
 	"""	
 	diccionarioClima={} 
-	
-	llaveApi="87dd4d6b93bcf3872531c2fecaf51962"
+	require('dotenv').config()
+	console.log(process.env)
+		
+	"""
+	Ingresar aqui su API KEY
+	"""
+		
+	llaveApi=process.env.API_KEY
 	url="http://api.openweathermap.org/data/2.5/weather?"
 
 	for clave in diccionario.keys():
@@ -27,6 +32,7 @@ def peticiones(diccionario):
 				
 
 	return diccionarioClima
+
 
 	
 def lecturaCache():

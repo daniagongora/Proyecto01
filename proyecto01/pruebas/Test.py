@@ -46,4 +46,3 @@ class Test:
 		assert("sensación" in Proyecto01.salidaClima(diccionarioPrueba))
 
 	
-	
