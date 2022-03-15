@@ -29,3 +29,5 @@ class Test:
 		assert(Proyecto01.lecturaCache()["CDG"]==diccionarioPrueba)
 
 	
+
+	
