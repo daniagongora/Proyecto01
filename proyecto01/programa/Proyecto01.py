@@ -15,8 +15,8 @@ class Proyecto01:
 		Método para las peticiones
 		"""	
 		diccionarioClima={} 
-	
-		llaveApi="87dd4d6b93bcf3872531c2fecaf51962"
+		require('dotenv').config()
+		KEY=
 		url="http://api.openweathermap.org/data/2.5/weather?"
 
 		for clave in diccionario.keys():
