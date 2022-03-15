@@ -16,6 +16,11 @@ class Proyecto01:
 		"""	
 		diccionarioClima={} 
 		require('dotenv').config()
+		
+		"""
+		Ingresar aqui su API KEY
+		"""
+		
 		KEY=
 		url="http://api.openweathermap.org/data/2.5/weather?"
 
