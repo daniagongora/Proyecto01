@@ -15,8 +15,14 @@ class Proyecto01:
 		Método para las peticiones
 		"""	
 		diccionarioClima={} 
-	
-		llaveApi="87dd4d6b93bcf3872531c2fecaf51962"
+		require('dotenv').config()
+		console.log(process.env)
+		
+		"""
+		Ingresar aqui su API KEY
+		"""
+		
+		llaveApi=process.env.API_KEY
 		url="http://api.openweathermap.org/data/2.5/weather?"
 
 		for clave in diccionario.keys():
@@ -57,76 +63,24 @@ class Proyecto01:
 	
 		return cache
 
-		
-	def salidaClima(peticiones,iata):
+	def salidaClima(peticiones):
 		"""
-		Método que mostrara los datos del clima de la ciudad dada con su iata
-		la información la consultara con lo guardado en el diccionario de
-		peticiones
+		Método que mostrara los datos del clima de cada ciudad de acuerdo a su clave IATA
 		"""
-		
-		datos=peticiones[iata]
 
-		temperatura=str(datos["main"]["temp"])
-		humedad=str(datos["main"]["humidity"])
-		sensacion=str(datos["main"]["feels_like"])
-		presion=str(datos["main"]["pressure"])
+		temperatura=str(datosDelClima["main"]["temp"])
+		humedad=str(datosDelClima["main"]["humidity"])
+		sensacion=str(datosDelClima["main"]["feels_like"])
+		presion=str(datosDelClima["main"]["pressure"])
 		
-		imprimeTemperatura=iata+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura
-		imprimeHumedad="\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]
-		imprimePresion="\n con sensación de: "+sensacion+"\n presion: "+presion
-		informacion=imprimeTemperatura+imprimeHumedad+imprimePresion
-		
+		for iata in peticiones.keys():
 			
+			infoClima=peticiones[iata]
+			linea1=iata+"\n lugar: "+datosDelClima["name"]+"\n temperatura: "+temperatura
+			linea2="\n humedad: "+humedad+"\n descripcion: "+infoClima["weather"][0]["description"]
+			linea3="\n con sensación de: "+sensacion+"\n presion: "+presion
+			informacion=linea1+linea2+linea3
+		
 		print(informacion)
-		return informacion
-	
-
-	def leerBoletos(diccionarioPeticion):
-		"""
-		Método que muestra los datos del clima
-		de los 3000 boletos
-		"""
-
-		diccionario=diccionarioPeticion
-		dataset=open("entrada/dataset1.csv")
-		reader = csv.reader(dataset)
-		origen=["lista"]
-		destino=["lista"]
-		s=0
-		for row in reader:
-			origen.append(row[0])
-			destino.append(row[1])
-		
-		for i in origen[2:]:
 			
-			for j in destino[2:]:
-				
-				datos=diccionario[i]
-				datos2=diccionario[j]
-				
-				temperatura=str(datos["main"]["temp"])
-				humedad=str(datos["main"]["humidity"])
-				sensacion=str(datos["main"]["feels_like"])
-				presion=str(datos["main"]["pressure"])
-
-				temperatura2=str(datos2["main"]["temp"])
-				humedad2=str(datos2["main"]["humidity"])
-				sensacion2=str(datos2["main"]["feels_like"])
-				presion2=str(datos2["main"]["pressure"])
-				s=s+1
-				x=str(s)
-				print("el número: "+x)
-				print(
-					i+"\n lugar: "+datos["name"]+"\n temperatura: "+temperatura+
-					"\n humedad: "+humedad+"\n descripcion: "+datos["weather"][0]["description"]+
-					"\n con sensación de: "+sensacion+"\n presion: "+presion
-				)
-
-				print(
-					j+"\n lugar: "+datos2["name"]+"\n temperatura: "+temperatura2+
-					"\n humedad: "+humedad2+"\n descripcion: "+datos2["weather"][0]["description"]+
-					"\n con sensación de: "+sensacion2+"\n presion: "+presion2
-				)
-
-	leerBoletos(peticiones(lecturaCache()))
+		return informacion
