@@ -13,9 +13,8 @@ def peticiones(diccionario):
 	Método para las peticiones
 	"""	
 	diccionarioClima={} 
-	load_dotenv(find_dotenv())
-
-	llaveApi=process.env.API_KEY
+	print("Ingresa tu clave de la API")
+	llaveApi = input()
 	url="http://api.openweathermap.org/data/2.5/weather?"
 
 
