@@ -8,12 +8,13 @@ from dotenv import load_dotenv, find_dotenv
 Archivo que se encarga de hacer lo que pide el proyecto 1
 """	
 def peticiones(diccionario):
+
 	"""
 	Método para las peticiones
 	"""	
 	diccionarioClima={} 
 	load_dotenv(find_dotenv())
-	
+
 	llaveApi=process.env.API_KEY
 	url="http://api.openweathermap.org/data/2.5/weather?"
 
